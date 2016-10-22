@@ -4,7 +4,7 @@ module.exports = {
   entry: [
     'webpack/hot/dev-server',
     'webpack-dev-server/client?http://localhost:8080',
-    path.resolve(__dirname, 'app/app.js')
+    path.resolve(__dirname, './source/app.js')
   ],
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -20,7 +20,7 @@ module.exports = {
       exclude: /node_modules/
     }, {
       test: /\.(png|jpg|gif)$/,
-      loader: 'url-loader?limit=8192' // 这里的 limit=8192 表示用 base64 编码 <= ８K 的图像
+      loader: 'url-loader?limit=8192'
     },
     {
  test: /\.css$/,
