@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<input type="button" value="测试按钮" id="btn">
+<script>
+window.id='windowID';
+var json={
+	"id":"jsonID"
+}
+document.getElementById('btn').onclick=function(){
+	alert(this.id);
+}.bind(json);
+</script>	
+</body>
+</html>

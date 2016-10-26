@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+
 module.exports = {
   entry: [
     'webpack/hot/dev-server',
@@ -11,6 +12,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
+
     loaders: [{
       test: /\.jsx?$/,
       loader: 'babel',
@@ -28,5 +30,5 @@ module.exports = {
 }
 
     ]
-  }
+  },
 };
