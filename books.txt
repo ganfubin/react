@@ -1,4 +1,0 @@
-1.第6页 "不过在表达还不怎么复杂的结构时，它就力不从心了"    -->  原意思为去掉 "还不".
-
-2.第22页  this.setState({count:count+1})    -->  this.setState({count:this.state.count+1});
-
