@@ -1,7 +1,5 @@
 cnpm install -g create-react-app脚手架
 npm run eject解除脚手架封装
-
-
 1.props,值是不可改变的.在表单中需要配合onChange.只能由父级往下传,props可以传数据，事件，插件的各种link等。
 在表单元素中一旦给某个可改变的值使用了props值，就会报错,比如input[type='text']的value值设置为Props就会报错，这时需要给按钮绑定一个Onchange事件加函数，该函数和组件的render方法为并列关系.比如
 <input type="text" value={this.props.somPropsValue}>//报错

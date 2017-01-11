@@ -1,0 +1,8 @@
+cnpm install -g create-react-app脚手架
+npm run eject解除脚手架封装
+
+npm换源,换源之后可以变得更快且自动解除脚手架封装.
+npm config set registry https://registry.npm.taobao.org
+-- 配置后可通过下面方式来验证是否成功
+npm config get registry
+-- 或npm info express
