@@ -1,3 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import {render} from 'react-dom';
-import $ from 'jquery';
+import TabIndex from "./TabIndex";
+render(<TabIndex />,document.getElementById("app"));
