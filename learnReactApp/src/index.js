@@ -1,7 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Tabs from './Tabs';
-ReactDOM.render(
-  <Tabs />,
-  document.getElementById('root')
-);
+import React,{Component} from 'react';
+import {render} from 'react-dom';
+class Tabs extends Component{
+	render(){
+
+		return(
+			<div>
+				hello,world!
+			</div>
+		)
+	}
+}
+render(<Tabs></Tabs>,document.getElementById('root'));

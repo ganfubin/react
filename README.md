@@ -1,2 +1,4 @@
 # react
 一个关于REACTJS的工作笔记和练习的仓库
+beforeReactCliAppeared为自定义webpack配置
+leanReactApp为官方曾提供的支持sass和less的配置.
