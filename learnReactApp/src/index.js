@@ -82,9 +82,7 @@ class TabContent extends Component {
 class TabPane extends Component {
   render() {
     return (
-      <div className={this.props.isActive?'tabs-panel tabs-active':'tabs-panel'}>
-        {this.props.children}
-      </div>
+          <div className={this.props.isActive?'tabs-panel tabs-active':'tabs-panel'}>{this.props.children}</div>
     );
   }
 }
@@ -102,5 +100,4 @@ class App extends Component {
     );
   }
 }
-
 ReactDOM.render(<App />, document.getElementById('root'));
