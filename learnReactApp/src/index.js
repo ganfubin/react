@@ -1,26 +1,31 @@
 import React, { Component,  cloneElement } from 'react';
+
 import ReactDOM from 'react-dom';
+
 import "./tabs/tabs.scss";
+
 class Tabs extends Component {
   constructor(props) {
     super(props);
-    const currProps = this.props;
     this.handleTabClick = this.handleTabClick.bind(this);
-    let activeIndex;
-    activeIndex = currProps.defaultActiveIndex;
+
     this.state = {
-      activeIndex,
-      prevIndex: activeIndex,
+      activeIndex:this.props.defaultActiveIndex,
+      prevIndex:this.props.defaultActiveIndex
     };
   }
+  
   handleTabClick(activeIndex) {
-    const prevIndex = this.state.activeIndex;
+
       this.setState({
-        activeIndex,
-        prevIndex,
+        activeIndex:activeIndex,
+        prevIndex:this.state.activeIndex
       });
-  }
+  
+}
+
   render() {
+
     return (
       <div>
         <TabNav key="tabBar"  onTabClick={this.handleTabClick} panels={this.props.children} activeIndex={this.state.activeIndex} />
@@ -31,23 +36,22 @@ class Tabs extends Component {
 }
 
 class TabNav extends Component {
-  getTabs() {
-    const { panels} = this.props;
-    return React.Children.map(panels, (child) => {
-      const order =+child.props.order;
+
+  render() {
+
+    var domRender=React.Children.map(this.props.panels, (child) => {
       return (
-        <li onClick={this.props.onTabClick.bind(this, order)} className={ this.props.activeIndex=== order? 'tabs-active tabs-tab' : 'tabs-tab'} >
+        <li onClick={this.props.onTabClick.bind(this, +child.props.order)} className={ this.props.activeIndex=== +child.props.order ? 'tabs-active tabs-tab' : 'tabs-tab'} >
           {child.props.tab}
         </li>
       );
     });
-  }
-  render() {
 
+    
     return (
       <div className="tabs-bar">
         <ul className="tabs-nav clear">
-          {this.getTabs()}
+        {domRender}
         </ul>
       </div>
     );
@@ -57,23 +61,21 @@ class TabNav extends Component {
 
 
 class TabContent extends Component {
-  getTabPanes() {
-    const { activeIndex, panels } = this.props;
-    return React.Children.map(panels, (child) => {
-      const order = parseInt(child.props.order, 10);
-      const isActive = activeIndex === order;
-
-      return React.cloneElement(child, {
-        isActive,
-        children: child.props.children,
-      });
-    });
-  }
 
   render() {
+
+     var domRender=React.Children.map(this.props.panels, (child) => {
+    
+      return React.cloneElement(child, {
+        isActive:this.props.activeIndex === +child.props.order,
+        children: child.props.children
+      });
+      
+    });
+
     return (
       <div className="tabs-content">
-        {this.getTabPanes()}
+        {domRender}
       </div>
     );
   }
@@ -86,6 +88,7 @@ class TabPane extends Component {
     );
   }
 }
+
 
 class App extends Component {
   render() {
