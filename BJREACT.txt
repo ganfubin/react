@@ -13,3 +13,5 @@ constructor(props){
    super(props);
    super();//如果需要在构造函数中使用props就需要在super中传入，两者都不影响后期props的接收和使用.
 }
+
+

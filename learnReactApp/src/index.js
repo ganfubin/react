@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
+import React,{Component} from 'react'
+import {render} from 'react-dom'
+class App extends Component{
+  constructor(props){
+    super(props);
+  }
+   eventFunc=(e)=>{
+       console.log(e)
+  }
 
-import ReactDOM from 'react-dom';
-
-
-class App extends Component {
-  render() {
-    return (
+  render(){
+    return(
       <div>
-          
+        <input type="button"  defaultValue="事件绑定测试" className="btn btn-success" onClick={this.eventFunc}  />
       </div>
-    );
+    )
   }
 }
-ReactDOM.render(<App />, document.getElementById('root'));
-
-
-
-
-
-
+render(<App />,document.getElementById("root"));
