@@ -1,5 +1,11 @@
-var a=1;
-var b=1;
+var obj1={
+	name:"IamName",
+	value:"IamValue",
+	age:"IamAge"
+};
+obj1.prototype.prototypeName="IamprototypeName";
+obj1.prototype.prototypeAge="IamprototypeAge";
 
-var c=a===b;
-console.log(c);
+for(attr in obj1){
+	console.log(attr)
+}
