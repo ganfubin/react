@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {render} from 'react-dom'
-import Form from './Form'
+import FatherToSon from './FatherToSon'
 class App extends Component{
   constructor(props){
     super(props);
@@ -10,7 +10,7 @@ class App extends Component{
 
     return(
       <div className="container">
-        <Form></Form>
+        <FatherToSon></FatherToSon>
       </div>
     )
   }
