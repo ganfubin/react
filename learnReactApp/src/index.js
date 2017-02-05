@@ -1,18 +1,12 @@
 import React,{Component} from 'react'
 import {render} from 'react-dom'
-import FatherToSon from './FatherToSon'
 class App extends Component{
-  constructor(props){
-    super(props);
-  }
 
-  render(){
+	render(){
+		return (
+			<h1>Hello</h1>
 
-    return(
-      <div className="container">
-        <FatherToSon></FatherToSon>
-      </div>
-    )
-  }
+			)
+	}
 }
-render(<App></App>,document.getElementById("root"));
+render(<App></App>,document.getElementById("root"))
