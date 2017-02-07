@@ -11,7 +11,7 @@ class Ref extends Component{
         }
     }
 
-    refFunc=(ref)=>{//当ref绑定了一个函数时，该函数在组件挂载后立即执行，且该组件的第一个参数就是该ref的实例。这个实例可以是dom也可以是react组件.当ref作为组件时，可以调用该组件的任意方法，不过一般不推荐这样做，因为这样破坏了封装性
+    refFunc=(ref)=>{//当ref绑定了一个函数时，该函数在组件挂载后立即执行，且该组件的第一个参数就是该ref的实例。这个实例可以是dom也可以是react组件.当ref作为组件时，可以调用该组件的任意方法
         this.refsElement=ref;
     }
 
