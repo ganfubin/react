@@ -1,13 +1,17 @@
 import React,{Component} from 'react'
 import {render} from 'react-dom'
-import HighOrderPropsProxy from "./HighOrderPropsProxy.js"
+import InheritanceInversion from "./InheritanceInversion.js"
 class App extends Component{
 	constructor(props){
 		super(props)
 	}
 	render(){
+		var Spans=React.createElement("h1",null,"Hello");
 		return (
-			<HighOrderPropsProxy></HighOrderPropsProxy>
+			<div>
+			<Spans />
+				
+			</div>
 			)
 	}
 
