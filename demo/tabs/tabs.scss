@@ -1,0 +1,26 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.clear{*zoom:1}
+.clear:after{content:"";clear:both;display:block}
+.tabs-tab{
+    float: left;
+    list-style: none;
+    margin-right: 24px;
+    cursor: pointer;
+}
+
+.tabs-panel{
+display: none;
+}
+
+
+.tabs-active{ 
+    display: block;
+    color:#00C49F
+}
+.tabs-content{
+    border:1px solid red;
+}
