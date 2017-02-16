@@ -2,7 +2,6 @@ import React,{Component} from 'react'
 import ajaxUrls from "../config/ajaxUrls.js";
 import { browserHistory } from 'react-router'//使用路由编程式导航
 import errorInforMation from "../config/errorInforMation.js"
-import $ from 'jquery'
 class Login extends Component{
 	constructor(props){
 		super(props);
@@ -33,30 +32,57 @@ class Login extends Component{
 	}
 
 	login(){
+       		let This=this;
        		let data={
        			loginUsername:this.state.username,
        			loginPassword:this.state.password
 
        		}
 
-       		$.ajax({
-       			data:data,
-       			type:"POST",
-       			url:ajaxUrls.login
-       		}).then((resp)=>{
-       			if(resp.data==='0'){
-       			   sessionStorage.setItem("username",resp.info.username);
-       			   sessionStorage.setItem("onlykey","musicxwgprivatekey");
-       			   window.location.href="/";
-	
-       			}else{
-       				this.refs.loginErr.style.display='block';
-                    this.refs.loginErr.innerHTML=errorInforMation.loginERR
-                    this.refs.loginErr.style.color='red';
-       			}
 
-       		},(err)=>{
-       		});
+ ajaxUrls.ajaxSend({
+    type:"post",
+    url:ajaxUrls.login,
+    data:data,
+    success:function(resp){
+        var data=JSON.parse(resp);
+        if(data.data==='0'){
+       			   sessionStorage.setItem("username",data.info.username);
+       			   sessionStorage.setItem("onlykey","musicxwgprivatekey");
+       			   window.location.href="/";		
+			}else{
+			       	This.refs.loginErr.style.display='block';
+                    This.refs.loginErr.innerHTML=errorInforMation.loginERR
+                    This.refs.loginErr.style.color='red';	
+			}
+
+
+    },
+    error:function(err){
+        console.log('Send error!');
+    },
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
        	}
 

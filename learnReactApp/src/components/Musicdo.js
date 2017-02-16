@@ -1,111 +1,107 @@
 import React,{Component} from 'react'
 import MusicdoCss from "../css/Musicdo.scss"
-import $ from 'jquery'
 import ajaxUrls from "../config/ajaxUrls.js";
 import errorInforMation from "../config/errorInforMation.js"
 import {Link,IndexLink} from 'react-router'
-class Musicdo extends Component{
-	constructor(props){
-		super(props);
+class Musicdo extends Component {
+    constructor(props) {
+        super(props);
 
-		this.state={
-			yesProfessional:"0",
-			isForStudy:"0",
-			whoGetTheMusicGift:"0",
-			choiceYouService:"0",
-			contactWay:"",
-			isLogin:false,
-            username:""
+        this.state = {
+                yesProfessional: "0",
+                isForStudy: "0",
+                whoGetTheMusicGift: "0",
+                choiceYouService: "0",
+                contactWay: "",
+                isLogin: false,
+                username: ""
 
-		}
-		//radio受控组件方法绑定
-		this.changeYesProfessional=this.changeYesProfessional.bind(this);
-		this.changeIsForStudy=this.changeIsForStudy.bind(this);
-		this.changeWhoGetTheMusicGift=this.changeWhoGetTheMusicGift.bind(this);
-		this.changeChoiceYouService=this.changeChoiceYouService.bind(this);
-		this.chanegContactWay=this.chanegContactWay.bind(this);
-		this.postMusicOrder=this.postMusicOrder.bind(this);
+            }
+            //radio受控组件方法绑定
+        this.changeYesProfessional = this.changeYesProfessional.bind(this);
+        this.changeIsForStudy = this.changeIsForStudy.bind(this);
+        this.changeWhoGetTheMusicGift = this.changeWhoGetTheMusicGift.bind(this);
+        this.changeChoiceYouService = this.changeChoiceYouService.bind(this);
+        this.chanegContactWay = this.chanegContactWay.bind(this);
+        this.postMusicOrder = this.postMusicOrder.bind(this);
 
-	}
-		componentDidMount() {
-		if(sessionStorage.getItem("onlykey")==="musicxwgprivatekey" && sessionStorage.getItem("username")!=""){
+    }
+    componentDidMount() {
+        if (sessionStorage.getItem("onlykey") === "musicxwgprivatekey" && sessionStorage.getItem("username") != "") {
 
-this.setState({
-	isLogin:true,
-	username:sessionStorage.getItem("username")
-})
-
-
-		}else{
-			this.setState({
-				isLogin:false
-			})
-		}
-	}
-	changeYesProfessional(e){
-		this.setState({
-			yesProfessional:e.target.value
-		})
-	}
-	changeIsForStudy(e){
-		this.setState({
-			isForStudy:e.target.value
-		})
-	}
-	changeWhoGetTheMusicGift(e){
-		this.setState({
-			whoGetTheMusicGift:e.target.value
-		})
-	}
-	changeChoiceYouService(e){
-		this.setState({
-			choiceYouService:e.target.value
-		})
-	}
-	chanegContactWay(e){
-		this.setState({
-			contactWay:e.target.value
-		})
-	}
-	postMusicOrder(){
+            this.setState({
+                isLogin: true,
+                username: sessionStorage.getItem("username")
+            })
 
 
+        } else {
+            this.setState({
+                isLogin: false
+            })
+        }
+    }
+    changeYesProfessional(e) {
+        this.setState({
+            yesProfessional: e.target.value
+        })
+    }
+    changeIsForStudy(e) {
+        this.setState({
+            isForStudy: e.target.value
+        })
+    }
+    changeWhoGetTheMusicGift(e) {
+        this.setState({
+            whoGetTheMusicGift: e.target.value
+        })
+    }
+    changeChoiceYouService(e) {
+        this.setState({
+            choiceYouService: e.target.value
+        })
+    }
+    chanegContactWay(e) {
+        this.setState({
+            contactWay: e.target.value
+        })
+    }
+    postMusicOrder() {
 
-			var data={
-				yesProfessional:this.state.yesProfessional,
-				isForStudy:this.state.isForStudy,
-				whoGetTheMusicGift:this.state.whoGetTheMusicGift,
-				choiceYouService:this.state.choiceYouService,
-				contactWay:this.state.contactWay,
-                username:this.state.username
-			}
-			$.ajax({
-				url:ajaxUrls.postyoumusic,
-				data:data,
-				type:"POST"
-			}).then((resp)=>{
-					        if(resp.data==='0'){
-          alert(errorInforMation.postSuccessFully)
-        };
-        if(resp.data==='1'){
-          alert(errorInforMation.postSoFast);
+
+
+        var data = {
+            yesProfessional: this.state.yesProfessional,
+            isForStudy: this.state.isForStudy,
+            whoGetTheMusicGift: this.state.whoGetTheMusicGift,
+            choiceYouService: this.state.choiceYouService,
+            contactWay: this.state.contactWay,
+            username: this.state.username
         }
 
-			},(err)=>{
+        ajaxUrls.ajaxSend({
+            type: "post",
+            url: ajaxUrls.postyoumusic,
+            data: data,
+            success: function(resp) {
+                var data = JSON.parse(resp);
+                if (data.data === '0') {
+                    alert(errorInforMation.postSuccessFully);
+                    return;
+                }
+                if (data.data === '1') {
+                    alert(errorInforMation.postSoFast);
+                    return;
+                }
 
-			});
+            },
+            error: function(err) {
+                console.log('Send error!');
+            },
 
+        });
+    }
 
-
-
-
-
-
-
-
-
-
-	}		
 	render(){
 		return (
 <div className="musicdoWrap">

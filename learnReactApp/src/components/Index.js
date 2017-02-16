@@ -1,6 +1,5 @@
 import React,{Component,propsTypes} from 'react'
 import { Carousel } from 'antd';
-import 'antd/dist/antd.css';
 import IndexCss from "../css/Index.scss"
 import imageUrls from "../config/imagesUrls.js";
 class Index extends Component{

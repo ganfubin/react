@@ -3,28 +3,6 @@ import {Link,IndexLink} from 'react-router'
 import ajaxUrls from '../config/ajaxUrls.js';
 import imagesUrls from '../config/imagesUrls.js';
 import CommonTopCss from '../css/CommonTop.scss'
-import $ from 'jquery'
-
-// function isLogin(){
-// 	let userLoginName=sessionStorage.getItem("username");
-// 	return (
-// 		<div className="yesLogin">
-// 	      <a id="LoginOut">退出</a>	
-// 	      <a>{userLoginName}</a>		      	
-// 	      </div>
-// 		)
-// }
-
-// function noLogin(){
-// 	return (
-//               <div className="noLogin">
-//                	   <Link to="/SignUp">注册</Link>		      	
-//                	   <Link to="/Login">登录{test}</Link>
-// 	            </div>
-
-// 		)
-// }
-
 
 function WhereLogin(props){
 	if(props.isLogin===true){
@@ -74,24 +52,25 @@ this.setState({
 	}
 	loginOut(){
      var data={"loginout":"loginout"};
-     $.ajax({
-     	url:ajaxUrls.saygoodbye,
-     	data:data,
-     	type:"POST"
-     }).then((resp)=>{
-     	if(resp.data==='0')
+    ajaxUrls.ajaxSend({
+    type:"post",
+    url:ajaxUrls.saygoodbye,
+    data:data,
+    success:function(resp){
+        var data=JSON.parse(resp);
+    			if(data.data==='0'){
 	   	 	sessionStorage.clear();
 	   	 	window.location.reload();
-     },(err)=>{
-	   },(err)=>{
-	   	console.log(err);
-     });
+                    }
+    },
+    error:function(err){
+        console.log('Send error!');
+    },
+
+});
 
 	}
 	render(){
-
-
-		
 		return (
          <div className="topWrap">
          	     <div className="loginAndSignupWrap">

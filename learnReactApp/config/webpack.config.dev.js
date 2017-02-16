@@ -97,7 +97,8 @@ module.exports = {
           // https://github.com/facebookincubator/create-react-app/issues/483
           cacheDirectory: findCacheDir({
             name: 'react-scripts'
-          })
+          }),
+          plugins: [["import",{libraryName:"antd",style:"css"}]]
         }
       },
       // "postcss" loader applies autoprefixer to our CSS.

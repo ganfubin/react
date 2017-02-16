@@ -2,13 +2,11 @@ import React,{Component} from 'react'
 import ajaxUrls from "../config/ajaxUrls.js";
 import LoginAndSignupCss from "../css/LoginAndSignup.scss"
 import { browserHistory } from 'react-router'//使用路由编程式导航
-import ajaxUrlsAddress from "../config/ajaxUrls.js";
 import errorInforMation from "../config/errorInforMation.js"
-import $ from 'jquery'
+
 class SignUp extends Component{
 	constructor(props){
 		super(props);
-		//console.log(fetch);
 		this.state={
 		    		username:"",
 		    		password:"",
@@ -66,7 +64,6 @@ class SignUp extends Component{
 	setRepeatPassword(e){
 		this.setState({
 			repeatPassword:e.target.value
-
 		})
 	}
 	changeSignStatusUI(dom,wordColor,innerHtmlWord,){
@@ -81,37 +78,31 @@ this.changeSignStatusUI(this.refs.userNameRealDom,'red',errorInforMation.incorre
  return false;
   }else{
 	let data={signupUsername:this.state.username};
-		$.ajax({
-			url:ajaxUrls.checkUserName,
-			type:"POST",
-			data:data
-		}).then((resp)=>{
-			if(resp.data==='1'){
-	this.changeSignStatusUI(this.refs.userNameRealDom,'red',errorInforMation.usernameAlreadyExists);
+	// console.log(data);
+
+var This=this;
+ ajaxUrls.ajaxSend({
+    type:"post",
+    url:ajaxUrls.checkUserName,    //必填
+    data:data,
+    success:function(resp){
+        var data=JSON.parse(resp);
+        if(data.data==='1'){
+	This.changeSignStatusUI(This.refs.userNameRealDom,'red',errorInforMation.usernameAlreadyExists);
 	return false;		
 			}
-			if(resp.data==='0'){
-	this.changeSignStatusUI(this.refs.userNameRealDom,'#4ebb00',errorInforMation.userNameIsOK);		
+			if(data.data==='0'){
+	This.changeSignStatusUI(This.refs.userNameRealDom,'#4ebb00',errorInforMation.userNameIsOK);		
 			}
 
+    },
+    error:function(err){
+        console.log('Send error!');
+    },
 
-		},(err)=>{
-			console.log(err);
-
-		})
+});
 
 }
-
-
-
-
-
-
-
-
-
-
-		
 	}
 	checkPassWord(){
 
@@ -123,16 +114,6 @@ this.changeSignStatusUI(this.refs.userNameRealDom,'red',errorInforMation.incorre
 				}else{
 					this.changeSignStatusUI(this.refs.passwordRealDom,'','');
 				}
-
-
-
-
-
-
-
-
-
-
 	}
 	checkRepeatPassWord(){
 				if(this.state.password!==this.state.repeatPassword){
@@ -150,26 +131,24 @@ this.changeSignStatusUI(this.refs.userNameRealDom,'red',errorInforMation.incorre
 					signupPassword:this.state.password
 				}
 
-				$.ajax({
-					type:"POST",
-					url:ajaxUrls.signUs,
-					data:data
-				}).then((resp)=>{
-				
-       			if(resp.data==='0'){
-       			   sessionStorage.setItem("username",resp.info.username);
+
+ ajaxUrls.ajaxSend({
+    type:"post",
+    url:ajaxUrls.signUs,
+    data:data,
+    success:function(resp){
+        var data=JSON.parse(resp);
+    			if(data.data==='0'){
+       			   sessionStorage.setItem("username",data.info.username);
        			   sessionStorage.setItem("onlykey","musicxwgprivatekey");
        			   window.location.href="/";
                     }
-				},(err)=>{
-					console.log(err);
-				})
+    },
+    error:function(err){
+        console.log('Send error!');
+    },
 
-
-
-
-
-
+});
 
 	}
 	goLogin(){
