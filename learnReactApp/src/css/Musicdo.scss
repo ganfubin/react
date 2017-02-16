@@ -1,0 +1,96 @@
+.musicdoWrap {
+background:linear-gradient(to right, #b2df00, #60af00);
+padding-bottom: 20px;
+}
+.musicdoBody {
+    width: 1024px;
+    margin: 0 auto;
+    background: #f1f2f4;
+    position: relative;
+    box-shadow: 1px 4px 15px gray;
+}
+
+.loginTitle {
+    height: 50px;
+    border-bottom: 1px solid #b3b2ae;
+    text-align: center;
+    line-height: 50px;
+}
+.loginTitle a{
+  color: green;
+}
+/*列表外层*/
+.formWrap{
+height: 800px;position: relative;
+}
+.formWrap .shade{
+  height: 800px;background: black;position: absolute;top: 0;left: 0;width: 100%;opacity:.1;
+}
+.choiceItem{
+    width: 1025px;
+    margin-bottom: 50px;
+    padding-left:10px; 
+    padding-right: 10px;
+}
+
+
+.choiceItem p{
+  width: 100%;margin-bottom: 20px;
+}
+
+
+label{
+  line-height: 30px;position: relative;width:205px;height: 30px;display: inline-block;float: left;margin-bottom:5px;
+}
+
+label input{
+  display: none;  
+}
+
+label input:checked + span{/*选中按钮之后的兄弟元素变色*/
+width: 30px;height: 30px;
+border-radius:30px;
+background: #73ef16;
+}
+
+
+label span:nth-of-type(1){/*未选中的颜色*/
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  display: inline-block;
+  background:gray;
+  line-height: 30px;
+}
+
+label span:nth-of-type(2){/*文字样式*/
+position: absolute;height: 30px;line-height: 30px;width: 170px;font-size: 14px;text-indent: 10px;
+}
+
+
+
+.contact{
+    border: 2px solid black;
+    width: 100%;
+    height: 50px;
+    border: 1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius: 2px;
+    text-indent: 24px;
+}
+
+.buttonWrap{
+  text-align: center;
+}
+.buttonWrap input{
+    width: 203px;
+    background: rgb(135, 198, 0);
+    border-bottom: none;
+    padding: 12px 36px;
+    cursor: pointer;
+    color: #FFF;
+    text-shadow: rgba(0, 0, 0, 0.9) 0px 1px 2px;
+    border: 1px solid #242424;
+    border-radius: 5px;
+    cursor: pointer;
+}	

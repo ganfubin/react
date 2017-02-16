@@ -1,0 +1,67 @@
+   #mainDemo{
+	background:linear-gradient(to right, #b2df00, #60af00);
+    }
+    #musicDemo {
+        width: 1024px;
+        margin: 0 auto;
+        padding-bottom:10px;
+    }
+
+    #demoList li {
+     padding: 0;
+    border: 1px solid #acca87;
+    position: relative;
+	height:80px;margin-top:10px;
+    line-height: 80px;
+	box-shadow:10px 5px 10px black;
+	background-color:white;
+    list-style: none;
+    }
+    #demoList li:first-child {
+    	margin-top: 0;
+    }
+    #demoList li:last-child {
+    	margin-bottom: 20px;
+    } 
+ 
+    #demoList li a {
+        height: 80px;
+        text-indent: 100px;
+        display: block;
+        font-size: 14px;
+        color: black;
+        width: 400px;
+        text-decoration: none;
+    }
+    
+    .bufferTitle {
+        position: absolute;
+        top: 0;
+        right: 100px;
+        color: #60af00;
+        width: 300px;
+        line-height: 80px;
+        display: none;
+        font-size: 12px;
+        text-shadow: 1px 1px 1px black
+
+    }
+    
+    .musicdbg {
+        position: absolute;
+        width: 80px;
+        height: 40px;
+        top: 20px
+    }
+    
+    .musicOnoff {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 20px;
+        top: 25px;
+        border-radius: 30px;
+        box-shadow: 2px 2px 2px black;
+        background: url(data:image/gif;base64,R0lGODlhCgAKAMQYAE2vADqdAIO4S9PbxNjtwGuuLMHTqKfHg83qsIDFN3fFL9ney5G7abfgkofET2S7EqHXcEiqAEejAESsAFKzAF23AGG4AFitAv///wAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABgALAAAAAAKAAoAAAUzIHYxC2aeYnAdqHldlFQY6FtZgCQM7nVblYhO5LMYAZME8UaZKBC95qNRC1AgLZGDkA0BADs=) 10px 10px no-repeat;
+        cursor: pointer
+    }

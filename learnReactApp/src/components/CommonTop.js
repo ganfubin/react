@@ -3,49 +3,100 @@ import {Link,IndexLink} from 'react-router'
 import ajaxUrls from '../config/ajaxUrls.js';
 import imagesUrls from '../config/imagesUrls.js';
 import CommonTopCss from '../css/CommonTop.scss'
+import $ from 'jquery'
+
+// function isLogin(){
+// 	let userLoginName=sessionStorage.getItem("username");
+// 	return (
+// 		<div className="yesLogin">
+// 	      <a id="LoginOut">退出</a>	
+// 	      <a>{userLoginName}</a>		      	
+// 	      </div>
+// 		)
+// }
+
+// function noLogin(){
+// 	return (
+//               <div className="noLogin">
+//                	   <Link to="/SignUp">注册</Link>		      	
+//                	   <Link to="/Login">登录{test}</Link>
+// 	            </div>
+
+// 		)
+// }
 
 
-function isLogin(){
-	return (
-		<div className="yesLogin">
-	      <a id="LoginOut">退出</a>	
-	      <a>222</a>		      	
-	      </div>
-		)
-}
+function WhereLogin(props){
+	if(props.isLogin===true){
+		return (
+	<div className="yesLogin">
+	      <a id="LoginOut" onClick={props.loginOut}>退出</a>	
+	      <a>{props.userLoginName}</a>		      	
+	</div>		
 
-function noLogin(){
-	return (
+			)
+	}else{
+return (
               <div className="noLogin">
                	   <Link to="/SignUp">注册</Link>		      	
                	   <Link to="/Login">登录</Link>
 	            </div>
+	)
 
-		)
+	}
+
 }
 
 class CommonTop extends Component{
 	constructor(props){
 		super(props);
 		this.state={
-			isLogin:true,
+			isLogin:false,
 			username:"",
 			mainLogo:imagesUrls.mainLogo
 		}
+		this.loginOut=this.loginOut.bind(this);
+	}
+	componentDidMount() {
+		if(sessionStorage.getItem("onlykey")==="musicxwgprivatekey" && sessionStorage.getItem("username")!=""){
+
+this.setState({
+	isLogin:true,
+	username:sessionStorage.getItem("username")
+})
+
+
+		}else{
+			this.setState({
+				isLogin:false
+			})
+		}
+	}
+	loginOut(){
+     var data={"loginout":"loginout"};
+     $.ajax({
+     	url:ajaxUrls.saygoodbye,
+     	data:data,
+     	type:"POST"
+     }).then((resp)=>{
+     	if(resp.data==='0')
+	   	 	sessionStorage.clear();
+	   	 	window.location.reload();
+     },(err)=>{
+	   },(err)=>{
+	   	console.log(err);
+     });
+
 	}
 	render(){
-		//是否登录渲染
-		var IsLoginComponent=null;
-		if(!this.state.isLogin){
-            IsLoginComponent=isLogin;
-		}else{
-           IsLoginComponent=noLogin;
-		}
+
+
 		
 		return (
          <div className="topWrap">
          	     <div className="loginAndSignupWrap">
-                 <IsLoginComponent></IsLoginComponent>
+                    <WhereLogin isLogin={this.state.isLogin} userLoginName={this.state.username} loginOut={this.loginOut}></WhereLogin>
+
 	     </div>
 
 	     <div className="logo">

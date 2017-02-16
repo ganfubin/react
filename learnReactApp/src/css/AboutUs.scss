@@ -1,0 +1,127 @@
+   .aboutUs{
+  background:linear-gradient(to right, #b2df00, #60af00);
+        width: 100%;
+      } 
+      .aboutUsWrap{
+        width: 1025px;
+        height: 455px;
+        margin: 0 auto;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0px 0px 10px gray;
+        border: 1px solid rgb(248,248,248);
+        overflow: hidden;
+      }
+      /*名片主体*/
+      .teamCard{
+        height: 400px;
+      }
+      .teamCardItemTitle{
+        height: 80px;border-bottom: 1px solid rgb(216,216,216);background-color: rgb(248,248,248);font-size: 36px;text-align: center;line-height: 80px;text-shadow: 1px 1px 1px white;
+      }
+      .teamCardItemBody{
+        height: 320px;background: linear-gradient(to bottom,rgb(248,248,248),rgb(233,233,233));border-top: 1px solid white;border-bottom: solid 1px rgb(216, 216, 216);
+      }
+      .teamSinglePhoto{
+        float: left;
+        width: 300px;
+        height: 300px;
+        position: relative;
+      }
+      .teamSinglePhoto img{
+        position: absolute;height: 260px;top: 20px;left: 50px;border-radius: 5px;box-shadow: 0px 0px 5px gray
+      }
+      .teamSingleDetail{
+        float: left;width: 700px;height: 300px;
+      }
+      .teamSingleDetail h3{
+        font-weight: normal;
+        margin-top: 20px;
+        font-size: 20px;
+        width: 700px;
+        border-bottom: 1px solid rgb(216,216,216);
+      }
+      .teamSingleDetail p{
+        font-size: 14px;
+        line-height: 28px;
+        border-top: 1px solid white;
+      }
+      /*团队切换列表*/
+      .teamList{
+        width: 1025px;
+        height: 54px;
+        background: rgb(238,238,238);border-top: 1px solid white;
+      }
+      .teamList li{
+        float: left;width: 205px;height: 50px;text-align: center;
+      }
+
+    .teamList li a{
+        text-decoration: none;cursor: pointer;
+        display: inline-block;color: black;width: 50px;height: 50px;line-height: 50px;border-radius: 50px;border: 1px solid black;
+        background-repeat: no-repeat;background-size: cover !important;
+
+      }
+/*公司简介*/
+#contactDetails {
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(48, 132, 0, 1) 0%, rgba(167, 218, 0, 1) 100%);
+}
+
+#contactDetails {
+    position: relative;
+    height: 300px;
+    padding-top: 30px;
+    width: 100%
+}
+
+#contactDetails div {
+    border: 1px solid rgba(0,0,0,.5);
+    width: 1024px;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px black;
+    height: 200px
+}
+
+#contactDetails p {
+    color: white;
+    width: 910px;
+    font-size: 14px;
+    font-family: "楷体";
+    height: 200px;
+    margin-left: 100px;
+    text-indent: 40px;
+    text-shadow: 1px 1px 1px black;
+    color: white;
+    padding-top: 30px;
+    line-height: 28px;
+}
+
+#leftLogo {
+    height: 150px;
+    width: 150px;
+    float: left;
+    border-radius: 200px;
+    border: 1px solid black;
+    margin-top: 20px;
+    animation:5s logoRotate linear infinite;
+}
+
+@keyframes logoRotate{
+  0%{
+    transform: rotate(360deg)
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+
+}
+/*百度地图*/
+#container {
+    width: 100%;
+    height: 400px;
+    margin: 0 auto;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black
+}
+

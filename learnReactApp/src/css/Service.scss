@@ -1,0 +1,48 @@
+.productClass{
+	width:100%;
+	background:#e1e3e2;
+	background:linear-gradient(to right, #b2df00, #60af00);        
+	padding-bottom:10px;
+}
+.productClass h2{
+	width:100%;
+	height:40px;
+	color:#60af00;
+	line-height: 40px;
+	text-align: center;
+	background:white;font-weight: normal;
+	margin: 0;
+	text-shadow: 1px 1px 1px gray;
+}
+
+.mainProductClass{
+	margin:0 auto;
+	width:1024px;
+}
+
+
+
+
+.serviceClass{
+	position: relative;
+	height:80px;margin-top:10px;
+	box-shadow:10px 5px 10px black;
+	background-size:80px 80px;	
+	background-color:white;
+	background-repeat: no-repeat;
+}
+
+.wordServer,.RMB{
+	position: absolute;
+	height: 80px;
+	line-height: 80px;
+}
+.wordServer{
+	display:inline-block;width:600px;margin-left: 100px;
+	font-size: 16px;
+}
+.rmb{position: absolute;
+top:35px;
+left: 250px;
+	font-size: 12px
+}
