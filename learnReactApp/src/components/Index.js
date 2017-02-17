@@ -14,15 +14,16 @@ class Index extends Component{
 
 		return (
 			<div>
-		 <Carousel autoplay>
-		 {
-		 	this.state.indexImgUrl.map((item,index)=>{
-		 		return (
-              <div key={index}><h3 className="imgShow"><img src={item} alt=""/></h3></div>
-		 			)
-		 	})
-		 }
-         </Carousel>
+
+	<Carousel autoplay>
+	{
+	 this.state.indexImgUrl.map((item,index)=>{
+		 return (
+					 <div key={index}><h3 className="imgShow"><img src={item} alt=""/></h3></div>
+			 )
+	 })
+	}
+			</Carousel>
 
 <div className="ourTeam">
   <h2 className="choiceReasonTitle">
@@ -52,6 +53,5 @@ class Index extends Component{
 
 			)
 	}
-
 }
 export default Index;

@@ -108,9 +108,8 @@ class Musicdo extends Component {
 <div className="musicdoBody">
 
   <div className="loginTitle"  style={{'display':this.state.isLogin?'none':'block'}}>
-       该功能需要<Link to="/Login">登录</Link>或<Link to="/SignUp">注册</Link>	后才能使用
+       该功能需要<Link to="/Login">登录</Link>或<Link to="/SignUp">注册</Link>后才能使用
    </div>
-
    <div className="loginTitle" style={{'display':this.state.isLogin?'block':'none'}}>
        您需要填写部分信息，以便于我们给您做电话回访.
    </div>
@@ -215,7 +214,7 @@ class Musicdo extends Component {
    </div>
 </div>
 </div>
-  
+
 			)
 
 	}

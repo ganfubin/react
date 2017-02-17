@@ -1,13 +1,14 @@
 import React,{Component} from 'react'
 import imageUrls from "../config/imagesUrls.js";
+import teamInfo from "../config/teamInfo.js"
 import AboutUsCss from "../css/AboutUs.scss"
 class AboutUs extends Component{
 	constructor(props){
 		super(props);
 		this.state={
-	  userJob:["CEO","CXO","CFO","CTO","CMO"],
-      userNameList:["关羽","张飞","赵云","黄忠","马超"],
-      userIntroduction:["我是关羽","我是张飞","我是赵云","我是黄忠","我是马超"],
+	    userJob:teamInfo.userJob,
+      userNameList:teamInfo.userNameList,
+      userIntroduction:teamInfo.userIntroduction,
       userImages:imageUrls.aboutUsImages,
       userJobSingle:"",
       userNameSingle:"",
@@ -82,7 +83,7 @@ this.changeTeamUI(0);
 <div>
 <img src={this.state.rotateLogo} alt="公司logo" id="leftLogo" />
 <p>
-一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字
+小乌龟音乐是一家集midi音乐制作,录音混音,作词作曲,艺术教学的创业型公司,团队成员主要由在校大学生组成.小乌龟的老家坐落于美丽的卫星湖畔黄瓜山下,也便是重庆文理学院星湖校区所在之地.自团队创立初,我们一直秉承"用心聆听.用爱打造,用音乐倾听彼此"的价值理念,力求为亲爱的客户做出更优美,更高质量的,更个性化的音乐.我们在小乌龟,期待与您共同邂逅艺术之美...
 </p>
 </div>
 </div>
