@@ -116,7 +116,7 @@ class Musicdo extends Component {
 
     <div className="formWrap" style={{'opacity':this.state.isLogin?1:0.2}}>
    <div className="choiceItem clear">
-     <p>(一).专业?</p>
+     <p>(一).您是否是学过乐理或其他乐器?</p>
      <label className="label">
        <input type="radio" value="0" onChange={this.changeYesProfessional}  checked={this.state.yesProfessional==="0"}/>
        <span className="radioBeautifulElement"></span>
@@ -130,7 +130,7 @@ class Musicdo extends Component {
    </div>
 
    <div className="choiceItem clear">
-     <p>(二).为学业?</p>
+     <p>(二).是否是为了完成考试作品?</p>
      <label className="label">
        <input type="radio" value="0"  onChange={this.changeIsForStudy} checked={this.state.isForStudy==="0"}/>
        <span className="radioBeautifulElement"></span>
@@ -145,7 +145,7 @@ class Musicdo extends Component {
 
 
    <div className="choiceItem clear">
-     <p>(三).送谁?</p>
+     <p>(三).如果把音乐定制作为礼物赠送,您最愿意送给谁?</p>
      <label className="label">
        <input type="radio" value="0" onChange={this.changeWhoGetTheMusicGift} checked={this.state.whoGetTheMusicGift==="0"}/>
        <span className="radioBeautifulElement"></span>
@@ -169,7 +169,7 @@ class Musicdo extends Component {
    </div>
 
    <div className="choiceItem clear">
-     <p>(四).选择服务类型?</p>
+     <p>(四).请选择您需要咨询的服务类型.</p>
      <label className="label">
        <input type="radio" onChange={this.changeChoiceYouService} value="0" checked={this.state.choiceYouService==="0"}/>
        <span className="radioBeautifulElement"></span>
@@ -204,7 +204,7 @@ class Musicdo extends Component {
 
 
    <div className="choiceItem clear">
-     <p>(五).联系方式(电话,QQ,微信均可)</p>
+     <p>(五).请填写您的联系方式(电话,QQ,微信均可)</p>
      <input placeholder="请输入您的联系方式"  onChange={this.chanegContactWay} className="contact"/>
    </div>
 
